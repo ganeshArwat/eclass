@@ -24,3 +24,7 @@ Route::resource('course', coursesController::class);
 Route::resource('sem', semcontroller::class);
 Route::resource('subject', SubjectController::class);
 Route::post('/getsem', [SubjectController::class, 'getsem']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
