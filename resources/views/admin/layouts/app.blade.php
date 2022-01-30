@@ -20,9 +20,12 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+    <style>
+      
+    </style>
     <div id="app">
         <nav class="navbar-dark navbar-expand-md navbar-light bg-dark shadow-sm">
-            <div class="container">
+            <div class="container" id="hnav">
                 {{-- <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a> --}}
@@ -57,7 +60,7 @@
                                     {{ Auth::user()->name }}
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-end bg-dark text-white" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu dropdown-menu-end bg-dark text-white order-1" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item text-white" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -70,6 +73,20 @@
                                 </div>
                             </li>
                         @endguest
+                       
+                    </ul>
+                    <ul class="navbar-nav  justify-content-center">
+                        <li class="nav-item">
+                            <a class=" text-white btn " href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                          document.getElementById('logout-form').submit();" role="button" >
+                             {{ __('Logout') }}
+                         </a>
+
+                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                             @csrf
+                         </form>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -106,11 +123,11 @@
                             </li>
     
                             <li class="nav-item">
-                                <a href="#" class="nav-link ">Manage teacher</a>
+                                <a href="{{route('admin.home')}}" class="nav-link ">Manage teacher</a>
                             </li>
     
                             <li class="nav-item">
-                                <a href="#" class="nav-link ">Manage student</a>
+                                <a href="{{route('admin.home')}}" class="nav-link ">Manage student</a>
                             </li>
                         </ul>
     

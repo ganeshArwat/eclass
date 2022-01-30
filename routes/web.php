@@ -24,9 +24,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('course', coursesController::class);
-Route::resource('sem', semcontroller::class);
-Route::resource('subject', SubjectController::class);
+Route::resource('course', coursesController::class)->middleware('is_admin');
+Route::resource('sem', semcontroller::class)->middleware('is_admin');
+Route::resource('subject', SubjectController::class)->middleware('is_admin');
 Route::post('/getsem', [SubjectController::class, 'getsem']);
 
 Auth::routes();
