@@ -123,7 +123,7 @@
                             </li>
     
                             <li class="nav-item">
-                                <a href="{{route('admin.home')}}" class="nav-link ">Manage teacher</a>
+                                <a href="{{route('teacherInfo.index')}}" class="nav-link ">Manage teacher</a>
                             </li>
     
                             <li class="nav-item">

@@ -29,7 +29,7 @@ Route::resource('course', coursesController::class)->middleware('is_admin');
 Route::resource('sem', semcontroller::class)->middleware('is_admin');
 Route::resource('subject', SubjectController::class)->middleware('is_admin');
 Route::post('/getsem', [SubjectController::class, 'getsem']);
-Route::resource('teacherInfo', TeacherInfoController::class);
+Route::resource('teacherInfo', TeacherInfoController::class)->middleware('is_admin');
 
 
 Auth::routes();
