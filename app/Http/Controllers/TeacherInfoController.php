@@ -17,10 +17,6 @@ class TeacherInfoController extends Controller
     public function index()
     {   
 
-        // $url = Storage::url('abc.png');
-        // echo $url;
-        // $path = Storage::path('abc.png');
-        // echo $path;
         $Teachers=TeacherInfo::all();
         $data=compact('Teachers');
         // echo'<pre>';
@@ -29,9 +25,6 @@ class TeacherInfoController extends Controller
         // }
 
             
-        // $directories = Storage::allDirectories();
-        // echo '<pre>';
-        // var_dump($directories);
         return view('admin.teacher.addTeacherInfo')->with($data);
     }
 
@@ -59,7 +52,10 @@ class TeacherInfoController extends Controller
         // print_r($request->all());
         // // print($request->file('profile_pic'));
 
-        $img=$request->file('profile_pic')->storePublicly('public/photos');
+        $destination_path='public/photos';
+        $image=$request->file('profile_pic');
+        $image_name= time().$image->getClientOriginalName();
+        $img=$request->file('profile_pic')->storeAs($destination_path , $image_name );
        
        $userName=$request->first_name." ".$request->last_name;
        $userMail=((string)rand(1000, 9999)).$request->first_name.$request->last_name."@eclass.com";
@@ -80,7 +76,7 @@ class TeacherInfoController extends Controller
         $table->last_name=$request->last_name;
         $table->email=$request->email;
         $table->phone_no=$request->phone_no;
-        $table->profile_img=$img;
+        $table->profile_img=$image_name;
         $table->dob=$request->dob;
         $table->gender=$request->gender;
         $table->address=$request->adress;

@@ -46,7 +46,7 @@
                 <td scope="col">{{$t->phone_no}}</td>
                 <td scope="col">{{$t->dob}}</td>
                 <td scope="col">
-                    <img src="{{asset('storage/app/photos/abc.png')}}" alt="profile pic" width="200" height="200">
+                    <img src="{{asset('storage/photos/'.$t->profile_img)}}" alt="profile pic" width="100" height="100">
                 </td>
                 <td scope="col">
                     @if ($t->gender=="M")
@@ -78,7 +78,7 @@
 
     <div class="container">
       
-        <img src="{{Storage::url('abc.png')}}" alt="picture">
+      
         
         <h1 class="text-center p-3">Add Teacher</h1>
              <form action="" method="POST" enctype="multipart/form-data">
