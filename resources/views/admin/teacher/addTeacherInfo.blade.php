@@ -63,8 +63,8 @@
                 <td scope="col">{{$t->user_mail}}</td>
                 <td scope="col">{{$t->password}}</td>
                 <td>
-                    <a name="" id="" class="btn btn-primary" href="" role="button">update</a>
-                    <a name="" id="" class="btn btn-warning" href="" role="button">delete</a>
+                    <a name="" id="" class="btn btn-primary" href="{{route('teacherInfo.edit', ['teacherInfo' => $t->teacher_id])}}" role="button">update</a>
+                    <a name="" id="" class="btn btn-warning" href="{{route('teacherInfo.show', ['teacherInfo'=> $t->teacher_id])}}" role="button">delete</a>
                    
                 </td>
               </tr>
