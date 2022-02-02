@@ -127,7 +127,7 @@
                             </li>
     
                             <li class="nav-item">
-                                <a href="{{route('admin.home')}}" class="nav-link ">Manage student</a>
+                                <a href="{{route('studentInfo.index')}}" class="nav-link ">Manage student</a>
                             </li>
                         </ul>
     

@@ -3,8 +3,10 @@
 use App\Http\Controllers\coursesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\semcontroller;
+use App\Http\Controllers\StudentInfoController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\TeacherInfoController;
+use App\Models\StudentInfo;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +32,7 @@ Route::resource('sem', semcontroller::class)->middleware('is_admin');
 Route::resource('subject', SubjectController::class)->middleware('is_admin');
 Route::post('/getsem', [SubjectController::class, 'getsem']);
 Route::resource('teacherInfo', TeacherInfoController::class)->middleware('is_admin');
+Route::resource('studentInfo', StudentInfoController::class);
 
 
 Auth::routes();

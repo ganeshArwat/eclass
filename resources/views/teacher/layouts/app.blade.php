@@ -75,9 +75,46 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <div class="container-fluid">
+            <div class="row min-vh-100 flex-column flex-md-row">
+    
+                <Aside class="col-12 col-md-3 col-xl-2 p-0 bg-dark flex-shrink-1">
+    
+                    <nav class="navbar navbar-expand-md navbar-dark bg-dark flex-md-column flex-row align-items-center py-2 text-center sticky-top "
+                        id="sidebar">
+    
+                        <div class="text-center p-3">
+                            <img src="{{url('img\eclass.png')}}" alt="profile picture" class="img-fluid  my-4 p-1 d-none d-md-block shadow">
+    
+                            <a href="#" class="navbar-brand mx-0 font-weight-bold text-nowrap"> ECLASS</a>
+                        </div>
+                       <button type="button" class="navbar-toggler  border-0 order-1" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation"> <span class=" navbar-toggler-icon"> </span> </button>
+    
+                       <div class="collapse navbar-collapse order-last" id="nav">
+    
+                        <ul class="navbar-nav flex-column w-100 justify-content-center">
+                            <li class="nav-item">
+                                <a href="{{route('teacher.home')}}" class="nav-link active">home</a>
+                            </li>
+    
+                            <li class="nav-item">
+                                <a href="{{route('studentInfo.index')}}" class="nav-link ">Manage student</a>
+                            </li>
+                        </ul>
+    
+                       
+                       </div>
+                    </nav>
+                </Aside>
+                <main class="col px-0 flex-grow-1">
+                    @yield('content')
+                </main>
+          </div>
+        </div>
+
+        {{-- <main class="py-4">
             @yield('content')
-        </main>
+        </main> --}}
     </div>
 </body>
 </html>
