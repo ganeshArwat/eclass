@@ -32,7 +32,7 @@ Route::resource('sem', semcontroller::class)->middleware('is_admin');
 Route::resource('subject', SubjectController::class)->middleware('is_admin');
 Route::post('/getsem', [SubjectController::class, 'getsem']);
 Route::resource('teacherInfo', TeacherInfoController::class)->middleware('is_admin');
-Route::resource('studentInfo', StudentInfoController::class);
+Route::resource('studentInfo', StudentInfoController::class)->middleware('is_admin_or_teacher');;
 
 
 Auth::routes();
